@@ -1,0 +1,13 @@
+diff --git a/modules/video_output/ios.m b/modules/video_output/ios.m
+index 957b312f45..5db014b0b1 100644
+--- a/modules/video_output/ios.m
++++ b/modules/video_output/ios.m
+@@ -390,7 +390,7 @@ + (void)getNewView:(NSArray *)value
+ 
+ - (id)initWithFrame:(CGRect)frame andVD:(vout_display_t*)vd
+ {
+-    _appActive = ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground);
++    _appActive = YES; // ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground);
+     if (unlikely(!_appActive))
+         return nil;
+ 
