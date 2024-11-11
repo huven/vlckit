@@ -327,12 +327,16 @@ if [ "$NONETWORK" != "yes" ]; then
             info "Applying the patches failed, aborting git-am"
             exit 1
         fi
+        git apply ${ROOT_DIR}/0090-sha.patch
+        git apply ${ROOT_DIR}/0091-active.patch
         cd ..
     else
         cd vlc
         git fetch --all
         git reset --hard ${TESTEDHASH}
         git am ${ROOT_DIR}/libvlc/patches/*.patch
+        git apply ${ROOT_DIR}/0090-sha.patch
+        git apply ${ROOT_DIR}/0091-active.patch
         cd ..
     fi
 fi
